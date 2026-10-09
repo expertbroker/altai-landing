@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Активы Усть-Коксинского района | Республика Алтай</title>
+<!-- Подключение современного шрифта Inter для делового стиля -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* === ПЕРЕМЕННЫЕ И БАЗОВЫЕ НАСТРОЙКИ === */
+:root {
+--accent: #f5914f;
+--accent-hover: #e07e3a;
+--bg-white: #ffffff;
+--bg-gray: #f5f5f5;
+--bg-black: #000000;
+--text-main: #000000;
+--text-white: #ffffff;
+--text-gray: #949494;
+--shadow-light: rgba(0, 0, 0, 0.05);
+--shadow-dark: rgba(0, 0, 0, 0.3);
+--radius-sm: 5px;
+--radius-pill: 50px;
+--transition: all 0.3s ease-in-out;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', Arial, sans-serif;
+color: var(--text-main);
+background-color: var(--bg-white);
+line-height: 1.6;
+font-size: 18px; /* Основной текст */
+}
+
+h1, h2, h3, h4 {
+font-weight: 700;
+line-height: 1.2;
+}
+
+h1 { font-size: 52px; }
+h2 { font-size: 32px; margin-bottom: 24px; position: relative; display: inline-block; }
+h2::after {
+content: '';
+position: absolute;
+bottom: -8px;
+left: 0;
+width: 60px;
+height: 2px;
+background-color: var(--accent);
+}
+h3 { font-size: 24px; margin-bottom: 16px; color: var(--text-main); }
+h4 { font-size: 20px; margin-bottom: 12px; color: var(--accent); }
+
+p, li {
+font-size: 18px;
+margin-bottom: 12px;
+color: #333;
+}
+
+.small-text {
+font-size: 13px;
+color: var(--text-gray);
+}
+
+ul {
+padding-left: 24px;
+margin-bottom: 16px;
+}
+
+li {
+margin-bottom: 8px;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 24px;
+}
+
+section {
+padding: 80px 0;
+}
+
+/* === КНОПКИ === */
+.btn {
+display: inline-block;
+padding: 16px 32px;
+background-color: var(--accent);
+color: var(--text-white);
+text-decoration: none;
+border-radius: var(--radius-pill);
+font-weight: 600;
+font-size: 18px;
+border: none;
+cursor: pointer;
+transition: var(--transition);
+text-align: center;
+}
+
+.btn:hover {
+background-color: var(--accent-hover);
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(245, 145, 79, 0.4);
+}
+
+.btn-outline {
+background-color: transparent;
+border: 2px solid var(--text-white);
+color: var(--text-white);
+}
+
+.btn-outline:hover {
+background-color: var(--text-white);
+color: var(--bg-black);
+}
+
+.btn-accordion {
+width: 100%;
+text-align: left;
+background-color: var(--bg-white);
+color: var(--text-main);
+border: 1px solid #e0e0e0;
+border-radius: var(--radius-pill);
+padding: 20px 32px;
+font-size: 20px;
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition);
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+}
+
+.btn-accordion:hover {
+border-color: var(--accent);
+color: var(--accent);
+}
+
+.btn-accordion.active {
+background-color: var(--accent);
+color: var(--text-white);
+border-color: var(--accent);
+}
+
+.btn-accordion::after {
+content: '+';
+font-size: 24px;
+font-weight: 300;
+transition: var(--transition);
+}
+
+.btn-accordion.active::after {
+content: '−';
+}
+
+/* === ПЕРВЫЙ ЭКРАН (HERO) С ФОТО === */
+.hero {
+min-height: 100vh;
+/* ЗАМЕНИТЕ ПУТЬ К ИЗОБРАЖЕНИЮ НИЖЕ на ваш файл */
+background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+url('mountain-lake.jpg') center/cover no-repeat fixed;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: var(--text-white);
+padding: 120px 24px;
+position: relative;
+}
+
+/* Если изображение еще не загружено, показываем резервный цвет */
+@supports not (background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('mountain-lake.jpg')) {
+.hero {
+background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+}
+}
+
+.hero-content {
+max-width: 1000px;
+z-index: 2;
+position: relative;
+animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.hero h1 {
+margin-bottom: 24px;
+text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+font-size: clamp(32px, 5vw, 52px);
+line-height: 1.2;
+}
+
+.hero-subtitle {
+font-size: clamp(18px, 3vw, 28px);
+font-weight: 300;
+margin-bottom: 48px;
+color: rgba(255, 255, 255, 0.95);
+letter-spacing: 2px;
+text-transform: uppercase;
+text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+/* === АККОРДЕОН (АКТИВЫ) === */
+.assets-section {
+background-color: var(--bg-gray);
+}
+
+.accordion-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+opacity: 0;
+background-color: var(--bg-white);
+border-radius: var(--radius-sm);
+margin-bottom: 16px;
+box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.accordion-content.open {
+max-height: 2000px; /* Достаточно большое значение для раскрытия */
+opacity: 1;
+padding: 32px;
+border-left: 4px solid var(--accent);
+}
+
+.asset-block {
+margin-bottom: 24px;
+}
+
+.asset-block:last-child {
+margin-bottom: 0;
+}
+
+/* === СТРУКТУРА СДЕЛКИ === */
+.deal-section {
+background-color: var(--bg-white);
+text-align: center;
+}
+
+.deal-section h2::after {
+left: 50%;
+transform: translateX(-50%);
+}
+
+.deal-description {
+max-width: 800px;
+margin: 0 auto 40px auto;
+font-size: 20px;
+color: #333;
+}
+
+/* === НАШИ УСЛУГИ === */
+.services-section {
+background-color: var(--bg-gray);
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 32px;
+margin-top: 40px;
+}
+
+.service-card {
+background-color: var(--bg-white);
+padding: 40px 32px;
+border-radius: var(--radius-sm);
+transition: var(--transition);
+border: 1px solid transparent;
+}
+
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+border-color: var(--accent);
+}
+
+.service-icon {
+font-size: 32px;
+color: var(--accent);
+margin-bottom: 20px;
+}
+
+.service-card h3 {
+font-size: 22px;
+margin-bottom: 12px;
+}
+
+.service-card p {
+font-size: 18px;
+color: #555;
+}
+
+/* === ФОРМА ЗАЯВКИ === */
+.form-section {
+background-color: var(--bg-white);
+}
+
+.form-container {
+max-width: 600px;
+margin: 0 auto;
+background-color: var(--bg-gray);
+padding: 48px;
+border-radius: var(--radius-sm);
+}
+
+.form-group {
+margin-bottom: 24px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-size: 16px;
+font-weight: 500;
+color: var(--text-main);
+}
+
+.form-group input {
+width: 100%;
+padding: 16px;
+font-size: 18px;
+font-family: inherit;
+border: 1px solid #ddd;
+border-radius: var(--radius-sm);
+transition: var(--transition);
+background-color: var(--bg-white);
+}
+
+.form-group input:focus {
+outline: none;
+border-color: var(--accent);
+box-shadow: 0 0 0 3px rgba(245, 145, 79, 0.1);
+}
+
+.form-submit {
+width: 100%;
+margin-top: 16px;
+}
+
+/* === КОНТАКТЫ (ФУТЕР) === */
+.footer {
+background-color: var(--bg-black);
+color: var(--text-white);
+padding: 60px 0;
+text-align: center;
+}
+
+.footer h2 {
+color: var(--text-white);
+border-bottom: none;
+}
+
+.footer h2::after {
+display: none;
+}
+
+.contact-phones {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-top: 24px;
+align-items: center;
+}
+
+.contact-phone {
+font-size: 24px;
+color: var(--text-white);
+text-decoration: none;
+font-weight: 600;
+transition: var(--transition);
+border-bottom: 2px solid transparent;
+}
+
+.contact-phone:hover {
+color: var(--accent);
+border-bottom-color: var(--accent);
+}
+
+.copyright {
+margin-top: 48px;
+font-size: 13px;
+color: var(--text-gray);
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+.hero-subtitle { font-size: 18px; }
+section { padding: 60px 0; }
+.form-container { padding: 32px 24px; }
+.accordion-content.open { padding: 24px; }
+.hero-buttons {
+flex-direction: column;
+align-items: center;
+}
+.btn {
+width: 100%;
+max-width: 300px;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. ПЕРВЫЙ ЭКРАН С ФОТО ГОРНОГО ОЗЕРА -->
+<header class="hero">
+<div class="hero-content">
+<h1>Структуры активов предлагаемых к реализации в Усть-Коксинском районе Республики Алтай</h1>
+<p class="hero-subtitle">Туризм, сельское хозяйство, транспорт</p>
+<div class="hero-buttons">
+<a href="#assets" class="btn btn-outline">Ознакомиться с активами</a>
+<a href="#contact-form" class="btn">Получить консультацию</a>
+</div>
+</div>
+</header>
+
+<!-- ОПИСАНИЕ АКТИВОВ (АККОРДЕОН) -->
+<section id="assets" class="assets-section">
+<div class="container">
+<h2>Описание активов</h2>
+
+<!-- Туризм -->
+<button class="btn-accordion" onclick="toggleAccordion(this, 'tourism-content')">
+Описание активов: Туризм
+</button>
+<div id="tourism-content" class="accordion-content">
+<div class="asset-block">
+<h4>Существующие активы:</h4>
+<ul>
+<li>12 модульных гостевых домов вместимостью на 6 гостей каждый с возможностью круглогодичного использования. Площадь 1 дома – 56 кв.м.</li>
+<li>4 летних гостевых дома вместимостью на 4 гостя. Площадь 1 дома – 30 кв.м.</li>
+<li>2-х этажный гостевой дом с цокольным этажом круглогодичного использования вместимостью на 28 гостей. Площадь – 416,9 кв.м.</li>
+<li>Здание кафе.</li>
+<li>Здание для административного персонала.</li>
+<li>Баня с купелью.</li>
+<li>Здание для приготовления и приема ванн из пантов марала.</li>
+<li>Инфраструктурные объекты: трансформаторная подстанция, водная скважина, система канализации.</li>
+</ul>
+</div>
+<div class="asset-block">
+<h4>Перспективы развития:</h4>
+<ul>
+<li>Строительство всесезонного горнолыжного курорта «Хан-Алтай», под который приобретены земельные участки, проведена геосъемка места застройки, составлен эскизный план.</li>
+<li>Развитие дополнительных услуг:
+<ul>
+<li>Рафтинг – сплавы от верховья Катуни до устья реки Аккем. Потенциал рафтингового спорта сопоставим с условиями в Большом Каньоне США.</li>
+<li>Каякинг – сплавы по рекам Кураган, Большая Катанда, Кучерла.</li>
+<li>Санаторно-курортный комплекс на основе пантового мараловодства.</li>
+<li>Организация пеших, конных маршрутов.</li>
+<li>Развитие форельного хозяйства для организации платной рыбалки или товарного производства рыбопродукции.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Сельское хозяйство -->
+<button class="btn-accordion" onclick="toggleAccordion(this, 'agro-content')">
+Описание активов: Сельское хозяйство
+</button>
+<div id="agro-content" class="accordion-content">
+<div class="asset-block">
+<p>Сельскохозяйственное предприятие <strong>АО «Катанда»</strong> имеет следующие основные направления деятельности:</p>
+<ul>
+<li><strong>Мараловодство</strong> – стадо маралов составляет 328 шт., в том числе 149 рогачей. Животные содержатся в маральнике площадью 554 гектаров. Реализация продукции осуществляется преимущественно партнерам из Юго-Восточной Азии.</li>
+<li><strong>Коневодство</strong> – количество лошадей – 47 шт. Развитие имеет 2 цели: для закрытия собственных потребностей в рабочих лошадях и для реализации на мясо. Конина пользуется устойчивым спросом у представителей Казахстана.</li>
+<li><strong>Пчеловодство</strong> – развивается на базе среднерусской породы пчел. Количество пчелосемей – 65 шт. Продукция пользуется высоким спросом у туристов, посещающих Горный Алтай.</li>
+</ul>
+<p>Возможно разведение крупного рогатого скота, есть имущественный комплекс (здание и оборудование) для переработки молока.</p>
+</div>
+<div class="asset-block">
+<h4>Имущественный комплекс представлен:</h4>
+<ul>
+<li>Сельскохозяйственные угодья – 24 тыс. гектаров (долгосрочная аренда) и 3,2 тыс. гектаров (собственность).</li>
+<li>Стада животных (маралы, лошади, пчелы).</li>
+<li>Кормопроизводственная база (машины и механизмы, зерносушильный комплекс, маслосырзавод).</li>
+<li>Сертифицированный убойный цех.</li>
+<li>Холодильное оборудование и оборудование для переработки молока.</li>
+<li>Административно-бытовые помещения.</li>
+<li>Автотранспорт.</li>
+</ul>
+</div>
+</div>
+
+<!-- Транспорт -->
+<button class="btn-accordion" onclick="toggleAccordion(this, 'transport-content')">
+Описание активов: Транспорт
+</button>
+<div id="transport-content" class="accordion-content">
+<div class="asset-block">
+<h4>Аэропорт Усть-Кокса</h4>
+<p>Расположен в долине реки Катунь в 6 км восточнее п. Усть-Кокса. Превышение над уровнем моря (Нпл) = 980,55 м.</p>
+<p><strong>Расстояния:</strong> Новосибирск – 559 км, Горно-Алтайск – 189 км, Барнаул – 365 км, Новокузнецк – 401 км, Кемерово – 566 км, Красноярск – 799 км.</p>
+</div>
+<div class="asset-block">
+<h4>Летно-технические характеристики</h4>
+<ul>
+<li>Размеры летного поля: 1400 х 115 м (пригодное для эксплуатации зимой и летом).</li>
+<li>ИВПП: 1400 х 35 м.</li>
+<li>Класс аэродрома: неклассифицированный. Класс ВПП: Е.</li>
+<li>Предназначен для самолетов: Ан-2, Ан-3т, Ан-28, Л-410, Вильга-35А, Як-18т, Як-52, Як-55, Pilatus PC-12, М-101Т «Гжель», вертолеты всех типов (кроме Ми-26).</li>
+<li>Допущен к эксплуатации в светлое время суток по установленным минимумам. С 2012 года переведен в режим посадочной площадки.</li>
+</ul>
+</div>
+<div class="asset-block">
+<h4>Планы развития</h4>
+<ul>
+<li>Реконструкция ВПП и её продление до 2000 метров для приема среднемагистральных судов 2-го класса (Embraer 170, SuperJet-100).</li>
+<li>Оснащение современным аэронавигационным оборудованием.</li>
+<li>Строительство перрона и аэровокзального комплекса.</li>
+</ul>
+</div>
+<div class="asset-block">
+<h4>Разрешения и имущественный комплекс</h4>
+<ul>
+<li>Сертификаты на авиатопливообеспечение, радионавигационное и метеообеспечение полетов; аэронавигационный паспорт.</li>
+<li>ВПП 1400*35 м с перроном и рулежной дорожкой, 2-х этажное здание аэровокзала.</li>
+<li>Заправочный комплекс со складом хранения ГСМ, аэронавигационное оборудование (ОПРС, приводные радиомаяки), УКВ/КВ связь.</li>
+<li>Участок площадью 50,6 Га в долгосрочной аренде.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- 2. СТРУКТУРА СДЕЛКИ -->
+<section id="deal" class="deal-section">
+<div class="container">
+<h2>Структура сделки</h2>
+<p class="deal-description">
+Для реализации активов предлагаем заключение договоров купли-продажи долей в юридических лицах – держателях активов. Это позволит сократить затраты на проведение сделок и провести «бесшовный» перевод текущей операционной деятельности к новым собственникам.
+</p>
+<a href="#contact-form" class="btn">Получить консультацию</a>
+</div>
+</section>
+
+<!-- 3. НАШИ УСЛУГИ -->
+<section id="services" class="services-section">
+<div class="container">
+<h2>Наши услуги</h2>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">📄</div>
+<h3>Анализ и проверка</h3>
+<p>Тщательно анализируем и проверяем всю юридическую и финансовую документацию по объектам активов.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🤝</div>
+<h3>Полное сопровождение</h3>
+<p>Сопровождаем клиентов на всех этапах оформления сделки, обеспечивая юридическую чистоту и прозрачность.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">️</div>
+<h3>Структурирование</h3>
+<p>Разрабатываем оптимальную структуру сделки для минимизации налоговых рисков и издержек.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 4. ФОРМА ЗАЯВКИ -->
+<section id="contact-form" class="form-section">
+<div class="container">
+<div style="text-align: center; margin-bottom: 40px;">
+<h2>Оставить заявку</h2>
+<p style="color: #555;">Заполните форму, и мы свяжемся с вами для обсуждения деталей</p>
+</div>
+<div class="form-container">
+<form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');">
+<div class="form-group">
+<label for="name">Имя</label>
+<input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+</div>
+<div class="form-group">
+<label for="phone">Телефон</label>
+<input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required placeholder="example@mail.ru">
+</div>
+<button type="submit" class="btn form-submit">Отправить заявку</button>
+<p class="small-text" style="text-align: center; margin-top: 16px;">
+Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+</p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- 5. КОНТАКТЫ -->
+<footer id="contacts" class="footer">
+<div class="container">
+<h2>Наши контакты</h2>
+<div class="contact-phones">
+<a href="tel:+79231772662" class="contact-phone">+7 (923) 177-26-62</a>
+<a href="tel:+79139176686" class="contact-phone">+7 (913) 917-66-86</a>
+</div>
+<p class="copyright">
+© 2026 Структуры активов Усть-Коксинского района. Все права защищены.<br>
+Республика Алтай, Усть-Коксинский район.
+</p>
+</div>
+</footer>
+
+<!-- СКРИПТЫ -->
+<script>
+// Функция для управления аккордеоном
+function toggleAccordion(button, contentId) {
+const content = document.getElementById(contentId);
+const isOpen = content.classList.contains('open');
+
+// Закрываем все открытые панели (опционально, для чистоты интерфейса)
+document.querySelectorAll('.accordion-content').forEach(el => {
+el.classList.remove('open');
+});
+document.querySelectorAll('.btn-accordion').forEach(el => {
+el.classList.remove('active');
+});
+
+// Если панель была закрыта, открываем её
+if (!isOpen) {
+content.classList.add('open');
+button.classList.add('active');
+}
+}
+
+// Плавная прокрутка для якорных ссылок
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+</script>
+</body>
+</html>
