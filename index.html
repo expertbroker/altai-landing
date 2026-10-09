@@ -165,18 +165,18 @@ content: '−';
 
 /* === ПЕРВЫЙ ЭКРАН (HERO) С ФОТО === */
 .hero {
-min-height: 100vh;
-/* ЗАМЕНИТЕ ПУТЬ К ИЗОБРАЖЕНИЮ НИЖЕ на ваш файл */
-background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-url('mountain-lake.jpg') center/cover no-repeat fixed;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-color: var(--text-white);
-padding: 120px 24px;
-position: relative;
-}
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                        url('mountain-lake.jpg') center/cover no-repeat;
+            background-attachment: fixed; /* Красивый эффект для компьютера */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-white);
+            padding: 120px 24px;
+            position: relative;
+        }
 
 /* Если изображение еще не загружено, показываем резервный цвет */
 @supports not (background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('mountain-lake.jpg')) {
@@ -427,6 +427,12 @@ width: 100%;
 max-width: 300px;
 }
 }
+/* Исправление: на телефонах фон просто прокручивается, чтобы не исчезать */
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
 </style>
 </head>
 <body>
